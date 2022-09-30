@@ -42,6 +42,7 @@ def deletaratendente(pk):
 
 @app.route('/alteraratendente/<int:pk>/', methods=['GET'])
 def updateatendente(pk):
+    pk1 = pk
     cpfAtendente = request.form['cpfAtendente']
     nomeAtendente = request.form['nomeAtendente']
     sobrenomeAtendente = request.form['sobrenomeAtendente']
@@ -56,7 +57,7 @@ def updateatendente(pk):
         cursor.execute('UPDATE Atendente SET CpfAtendente=%s, NomeAtendente=%s, SobrenomeAtendente=%s, RgAtendente=%s, EnderecoAtendente=%s, SalarioAtendente=%s, TelefoneAtendente=%s WHERE idCliente =%s',
                        (cpfAtendente, nomeAtendente, sobrenomeAtendente, rgAtendente, enderecoAtendente, salarioAtendente, telefoneAtendente, pk))
         conn.commit()
-        return render_template('alteraratendente.html', datas=data)
+        return render_template('alteraratendente.html')
 
 
 @app.route('/cliente')
