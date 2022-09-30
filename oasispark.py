@@ -39,6 +39,25 @@ def deletaratendente(pk):
     return render_template('cadastroatendente.html', datas=data, pk = pk)
 
 
+@app.route('/alteraratendente/<int:pk>/', methods=['GET'])
+def updateatendente(pk):
+    cpfAtendente = request.form['cpfAtendente']
+    nomeAtendente = request.form['nomeAtendente']
+    sobrenomeAtendente = request.form['sobrenomeAtendente']
+    rgAtendente = request.form['rgAtendente']
+    enderecoAtendente = request.form['enderecoAtendente']
+    salarioAtendente = request.form['salarioAtendente']
+    telefoneAtendente = request.form['telefoneAtendente']
+
+    if cpfAtendente and nomeAtendente and sobrenomeAtendente and rgAtendente and enderecoAtendente and salarioAtendente and telefoneAtendente:
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        cursor.execute('UPIDATE Atendente SET CpfAtendente=%s, NomeAtendente=%s, SobrenomeAtendente=%s, RgAtendente=%s, EnderecoAtendente=%s, SalarioAtendente=%s, TelefoneAtendente=%s WHERE idCliente =%s',
+                       (cpfAtendente, nomeAtendente, sobrenomeAtendente, rgAtendente, enderecoAtendente, salarioAtendente, telefoneAtendente, pk))
+        conn.commit()
+        return render_template('alteraratendente.html',)
+
+
 @app.route('/cliente')
 def cliente():
     return render_template('cadastrocliente.html')
