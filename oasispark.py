@@ -41,13 +41,13 @@ def deletaratendente(pk):
 
 @app.route('/alteraratendente/<int:pk>/', methods=['GET'])
 def updateatendente(pk):
-    cpfAtendente = request.form['cpfAtendente']
-    nomeAtendente = request.form['nomeAtendente']
-    sobrenomeAtendente = request.form['sobrenomeAtendente']
-    rgAtendente = request.form['rgAtendente']
-    enderecoAtendente = request.form['enderecoAtendente']
-    salarioAtendente = request.form['salarioAtendente']
-    telefoneAtendente = request.form['telefoneAtendente']
+    cpfAtendente = request.args.get('cpfAtendente')
+    nomeAtendente = request.args.get('nomeAtendente')
+    sobrenomeAtendente = request.args.get('sobrenomeAtendente')
+    rgAtendente = request.args.get('rgAtendente')
+    enderecoAtendente = request.args.get('enderecoAtendente')
+    salarioAtendente = request.args.get('salarioAtendente')
+    telefoneAtendente = request.args.get('telefoneAtendente')
 
     if cpfAtendente and nomeAtendente and sobrenomeAtendente and rgAtendente and enderecoAtendente and salarioAtendente and telefoneAtendente:
         conn = mysql.connect()
