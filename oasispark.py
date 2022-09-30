@@ -41,6 +41,7 @@ def deletaratendente(pk):
 
 @app.route('/alteraratendente/<int:pk>/', methods=['GET'])
 def updateatendente(pk):
+    pk2 = pk
     cpfAtendente = request.args.get('cpfAtendente')
     nomeAtendente = request.args.get('nomeAtendente')
     sobrenomeAtendente = request.args.get('sobrenomeAtendente')
@@ -52,10 +53,10 @@ def updateatendente(pk):
     if cpfAtendente and nomeAtendente and sobrenomeAtendente and rgAtendente and enderecoAtendente and salarioAtendente and telefoneAtendente:
         conn = mysql.connect()
         cursor = conn.cursor()
-        cursor.execute('UPIDATE Atendente SET CpfAtendente=%s, NomeAtendente=%s, SobrenomeAtendente=%s, RgAtendente=%s, EnderecoAtendente=%s, SalarioAtendente=%s, TelefoneAtendente=%s WHERE idCliente =%s',
-                       (cpfAtendente, nomeAtendente, sobrenomeAtendente, rgAtendente, enderecoAtendente, salarioAtendente, telefoneAtendente, pk))
+        cursor.execute('UPDATE Atendente SET CpfAtendente=%s, NomeAtendente=%s, SobrenomeAtendente=%s, RgAtendente=%s, EnderecoAtendente=%s, SalarioAtendente=%s, TelefoneAtendente=%s WHERE idCliente =%s',
+                       (cpfAtendente, nomeAtendente, sobrenomeAtendente, rgAtendente, enderecoAtendente, salarioAtendente, telefoneAtendente, pk2))
         conn.commit()
-        return render_template('alteraratendente.html')
+        return render_template('alteraratendente.html' )
 
 
 @app.route('/cliente')
