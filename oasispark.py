@@ -55,7 +55,7 @@ def updateatendente(pk):
         cursor.execute('UPIDATE Atendente SET CpfAtendente=%s, NomeAtendente=%s, SobrenomeAtendente=%s, RgAtendente=%s, EnderecoAtendente=%s, SalarioAtendente=%s, TelefoneAtendente=%s WHERE idCliente =%s',
                        (cpfAtendente, nomeAtendente, sobrenomeAtendente, rgAtendente, enderecoAtendente, salarioAtendente, telefoneAtendente, pk))
         conn.commit()
-        return render_template('alteraratendente.html',)
+        return render_template('alteraratendente.html')
 
 
 @app.route('/cliente')
