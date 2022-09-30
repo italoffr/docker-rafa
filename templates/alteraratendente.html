@@ -48,23 +48,23 @@
         </header>
 
         <div class="ateraatendente">
-           <tbody>
-            <form action="/alteraratendente" method="GET">
-                {% for item in datas %}
-                <tr>
-                <th scope="row">{{item[0]}}</th>
-                <input type="text" value="{{item[1]}}" name="cpfAtendente">
-                <input type="text" value="{{item[2]}}" name="nomeAtendente">            
-                <input type="text" value="{{item[3]}}" name="sobrenomeAtendente">
-                <input type="text" value="{{item[4]}}" name="rgAtendente">
-                <input type="text" value="{{item[5]}}" name="enderecoAtendente">
-                <input type="text" value="{{item[6]}}" name="salarioAtendente">
-                <input type="text" value="{{item[7]}}" name="telefoneAtendente">
+            <form action="/alteraratendente" method="POST">
+                <label for="cpfAtendente">CPF:</label><br>
+                <input type="number" name="cpfAtendente"><br>
+                <label for="nomeAtendente">NOME:</label><br>
+                <input type="text" name="nomeAtendente"><br>
+                <label for="sobrenomeAtendente">SOBRENOME:</label><br>
+                <input type="text" name="sobrenomeAtendente"><br>
+                <label for="rgAtendente">RG:</label><br>
+                <input type="number" name="rgAtendente"><br>
+                <label for="enderecoAtendente">ENDEREÇO:</label><br>
+                <input type="text" name="enderecoAtendente"><br>
+                <label for="salarioAtendente">SALARIO:</label><br>
+                <input type="number" name="salarioAtendente"><br>
+                <label for="telefoneAtendente">TELEFONE:</label><br>
+                <input type="number" name="telefoneAtendente"><br>
                 <input type="submit" value="Alterar">
-                {% endfor %}
-              </td>
             </form>
-           </tbody>
         </div>
     </body>
 </html>
